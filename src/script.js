@@ -2,6 +2,7 @@ var bgc_btn = document.querySelector("#bgc_btn");
 var shape = document.querySelector("#shape");
 var border_input = document.querySelector("#border_input");
 var border_radius_input = document.querySelector("#border_radius_input");
+var opacity_btn = document.querySelector("#opacity_input")
 
 var size_plus_btn = document.querySelector("#size_plus_btn");
 var size_minus_btn = document.querySelector("#size_minus_btn");
@@ -192,6 +193,14 @@ size_minus_btn.addEventListener("click", function () {
     duration: 0.25,
   });
 });
+
+opacity_btn.addEventListener("click",function(){
+  gsap.to(shape, {
+    opacity: `${opacity_btn.value/100}`,
+    duration: 0.25,
+    scrub: 1,
+  });
+})
 
 var rise_btn = document.querySelector("#rise");
 rise_btn.addEventListener("click", function () {

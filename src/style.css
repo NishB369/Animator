@@ -102,8 +102,10 @@ body {
 dl {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-evenly;
+  /* gap: 30px; */
+  width: 100%;
+  /* border: 1px solid red; */
 }
 
 dt div {
@@ -186,6 +188,17 @@ dt div {
 }
 
 #width_input {
+  width: 60px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 2px;
+  padding: 0 0 0 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#opacity_input{
   width: 60px;
   height: 30px;
   border: 2px solid blue;
