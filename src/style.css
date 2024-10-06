@@ -1,33 +1,76 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  html,
-  body {
-    height: 100%;
-    width: 100%;
-    background-color: #18191b;
-  }
-  
-  #main {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 1% 1%;
-  }
-  
-  #left_side_animation_panel {
-    border: 1px solid rgba(255, 255, 255, 0.463);
-    height: 100%;
-    width: 30%;
-    background-color: #252627;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #18191b;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1% 1%;
+}
+
+#left_side_animation_panel {
+  border: 1px solid rgba(255, 255, 255, 0.463);
+  height: 100%;
+  width: 30%;
+  background-color: #252627;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#animations_container {
+  width: 90%;
+  height: 70%;
+  /* border: 1px solid red; */
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 30px;
+  padding: 25px 15px;
+}
+
+.animation_icon {
+  width: 30%;
+  height: 30%;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.578);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12.5px;
+  padding: 10px;
+  gap: 5px;
+  margin-left: -15px;
+  cursor: pointer;
+}
+
+.animation_icon_img {
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+}
+
+.animation_icon_text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+}
