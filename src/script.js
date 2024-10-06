@@ -13,6 +13,11 @@ var width_btn = document.querySelector("#width_input");
 var reload_btn = document.querySelector("#reload_btn");
 
 reload_btn.addEventListener("click", function () {
+  gsap.to(opacity_btn, {
+    value: 100,
+    duration: 0.25,
+  });
+
   gsap.to(height_btn, {
     value: 200,
     duration: 0.25,
@@ -39,6 +44,7 @@ reload_btn.addEventListener("click", function () {
     borderRadius: "100px",
     border: "0",
     duration: 0.25,
+    opacity:1
   });
 });
 
@@ -188,7 +194,7 @@ size_minus_btn.addEventListener("click", function () {
 opacity_btn.addEventListener("click",function(){
   gsap.to(shape, {
     opacity: `${opacity_btn.value/100}`,
-    duration: 0.25,
+    duration: 0.1,
   });
 })
 
