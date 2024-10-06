@@ -14,6 +14,9 @@
             <div id="color_input">
                 <input type="color" name="" value="#0000ff" style="height: 50px; width:175px;" id="input_color">
             </div>
+            <div id="color_input_border">
+                <input type="color" name="" value="#000000" style="height: 50px; width:175px;" id="input_color_border">
+            </div>
             <div style="display: flex; align-items: center; justify-content: start; width: 90%; margin-bottom: 0px;">
                 <h1 style="color: white; font-family: Arial, Helvetica, sans-serif; text-align: left; font-size: 20px; border-bottom: 1px solid white;padding-bottom: 2px;">Animations</h1>
             </div>
@@ -68,13 +71,17 @@
                         <div class="deign_layout_bar_btns" id="bgc_btn"></div>
                         <div id="hex_code">#0000ff</div>
                     </dt>
+                    <dt style="display: flex; justify-content: center;">
+                        <div class="deign_layout_bar_btns" id="border_clr_btn"></div>
+                        <div id="hex_code_border">#000000</div>
+                    </dt>
                     <dt style="display: flex; align-items: center; justify-content: center; gap: 5px;">
                         <div class="deign_layout_bar_btns" id="border_btn"><img src="/public/media/icons/border_icon.svg" alt=""></div>
                         <input type="number" name="" id="border_input" value="0" min="0">
                     </dt>
                     <dt style="display: flex; justify-content: center;">
                         <div class="deign_layout_bar_btns" id="border_radius_btn"><img src="/public/media/icons/border_radius.svg" alt=""></div>
-                        <input type="number" name="" id="border_radius_input" value="100" min="0">
+                        <input type="number" name="" id="border_radius_input" value="0" min="0">
                     </dt>
                     <dt>
                         <div class="deign_layout_bar_btns" id="separate_btn"><img src="/public/media/icons/separate_line.svg" alt=""></div>
@@ -132,7 +139,58 @@
             </div>
         </div>
     </div>
-
+    <div id="border_panel" style="height: 25%; width: 25%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: none; align-items: center; justify-content: space-evenly; flex-direction: column; position: fixed; top: 15%; left: 30%;">
+        <div id="border_types" style="display: flex; align-items: center; justify-content: space-evenly; width: 100%; height: 22.5%;">
+            <div class="b_type" id="block_border">
+                <img src="/public/media/icons/block-svgrepo-com.svg" alt="">
+            </div>
+            <div class="b_type" id="normal_border">
+                <img src="/public/media/icons/horizontal-rule-svgrepo-com.svg" alt="">
+            </div>
+            <div class="b_type" id="dashed_border">
+                <img src="/public/media/icons/line-dashed-svgrepo-com.svg" alt="">
+            </div>
+            <div class="b_type" id="dotted_border">
+                <img src="/public/media/icons/border-dotted-svgrepo-com.svg" alt="">
+            </div>
+            <div class="b_type" id="double_border">
+                <img src="/public/media/icons/double-barline-svgrepo-com (1).svg" alt="" style="rotate: 90deg;">
+            </div>
+        </div>
+        <div id="linking" style="width: 100%; height: 50%; display: flex; align-items: center; justify-content: space-evenly;">
+            <div style="height: 100%; width: 50%; border: 1px solid rgba(255, 255, 255, 0.365); border-radius: 5px;">
+                <dl style="height: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; column-gap: 5px; padding: 5px 0;">
+                    <dt class="corners">
+                        <div class="corners_div"><img src="/public/media/icons/corner-up-right-svgrepo-com.svg" alt=""></div>
+                        <input type="number" name=""  id="top_left_corner" value="0" min="0">
+                    </dt>
+                    <dt class="corners">
+                        <input type="number" name=""  id="top_right_corner" value="0" min="0">
+                        <div class="corners_div"><img src="/public/media/icons/corner-up-right-svgrepo-com.svg" alt="" style="transform: rotateY(180deg);"></div>
+                    </dt>
+                    <dt class="corners">
+                        <div class="corners_div"><img src="/public/media/icons/corner-up-right-svgrepo-com.svg" alt="" style="transform: rotateX(180deg);"></div>
+                        <input type="number" name=""  id="bottom_left_corner" value="0" min="0">
+                    </dt>
+                    <dt class="corners">
+                        <input type="number" name=""  id="bottom_right_corner" value="0" min="0">
+                        <div class="corners_div"><img src="/public/media/icons/corner-up-right-svgrepo-com.svg" alt="" style="rotate: 180deg"></div>
+                    </dt>
+                </dl>
+            </div>
+            <div style="height: 100%; width: 40%; display: flex; align-items: center; justify-content: space-evenly; flex-direction: column; gap: 10px;">
+                <div class="select_link_type" id="linked_border">
+                    <span style="width: 30%; text-align: right;">Link</span>
+                    <span><img src="/public/media/icons/lock-svgrepo-com.svg" alt=""></span>
+                </div>
+                <div class="select_link_type" id="unlinked_border">
+                    <span style="width: 30%; text-align: right;">Unlink</span>
+                    <span><img src="/public/media/icons/lock-unlocked-svgrepo-com.svg" alt=""></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/src/script.js"></script>

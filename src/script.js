@@ -1,4 +1,5 @@
 var bgc_btn = document.querySelector("#bgc_btn");
+var border_clr_btn = document.querySelector("#border_clr_btn");
 var shape = document.querySelector("#shape");
 var border_input = document.querySelector("#border_input");
 var border_radius_input = document.querySelector("#border_radius_input");
@@ -17,6 +18,7 @@ var y_pos = document.querySelector("#y_input");
 var deg_btn = document.querySelector("#deg_input");
 
 var input_boxes = document.querySelectorAll('input[type="number"]');
+var border_panel = document.querySelector("#border_panel")
 
 reload_btn.addEventListener("click", function () {
   input_boxes.forEach(function (box) {
@@ -29,7 +31,7 @@ reload_btn.addEventListener("click", function () {
   gsap.to(shape, {
     height: "200px",
     width: "200px",
-    borderRadius: "100px",
+    borderRadius: "0px",
     border: "0",
     duration: 0.25,
     opacity: 1,
@@ -100,6 +102,37 @@ bgc_btn.addEventListener("mouseenter", function () {
 bgc_btn.addEventListener("mouseleave", function () {
   var hex_code = document.querySelector("#hex_code");
   hex_code.style.display = "none";
+});
+
+border_clr_btn.addEventListener("mouseenter",function(){
+  border_panel.style.display = "flex"
+  var hex_code = document.querySelector("#hex_code_border");
+  hex_code.style.display = "flex";
+})
+
+border_panel.addEventListener("mouseleave",function(){
+  border_panel.style.display = "none"
+  var hex_code = document.querySelector("#hex_code_border");
+  hex_code.style.display = "none"; 
+})
+
+border_clr_btn.addEventListener("click", function () {
+  var color_input_border_display = document.querySelector(
+    "#color_input_border"
+  );
+  color_input_border_display.style.display = "flex";
+  color_input_border_display.style.opacity = 1;
+
+  var color_input_border = document.querySelector("#input_color_border");
+  var color_output_border = document.querySelector("#hex_code_border");
+
+  // color_input_border.addEventListener("change", function () {
+
+  //   gsap.to(color_input_border_display, {
+  //     display: "none",
+  //     duration: 0.5,
+  //     opacity: 0,
+  //   });
 });
 
 border_input.addEventListener("change", function () {
@@ -252,3 +285,134 @@ breathe_btn.addEventListener("click", function () {
     ease: "",
   });
 });
+
+// var block_border = document.querySelector("#block_border")
+// var normal_border = document.querySelector("#normal_border")
+// var dashed_border = document.querySelector("#dashed_border")
+// var dotted_border = document.querySelector("#dotted_border")
+// var double_border = document.querySelector("#double_border")
+
+var border_types = document.querySelectorAll(".b_type");
+border_types.forEach(function (border, i) {
+  border.addEventListener("click", function () {
+    let effect;
+    switch (i) {
+      case 0:
+        effect = "none";
+        break;
+      case 1:
+        effect = "solid";
+        break;
+      case 2:
+        effect = "dashed";
+        break;
+      case 3:
+        effect = "dotted";
+        break;
+      case 4:
+        effect = "double";
+        break;
+      default:
+        effect = "solid";
+        break;
+    }
+    
+    if (effect!="none"){
+      gsap.to(shape, {
+        borderStyle: effect, 
+        duration: 0.25,
+      });
+    }
+    else{
+      gsap.to(shape, {
+        borderStyle: effect, 
+        duration: 0.25,
+      });
+      gsap.to(border_input, {
+        value: 0, 
+        duration: 0.25,
+      });
+    }
+  });
+});
+
+
+
+var top_right_border = document.querySelector("#top_right_corner")
+var top_left_border = document.querySelector("#top_left_corner")
+var bottom_left_border = document.querySelector("#bottom_left_corner")
+var bottom_right_border = document.querySelector("#bottom_right_corner")
+var corners = [top_left_border, top_right_border, bottom_left_border, bottom_right_border]
+
+
+top_left_border.addEventListener("change",function(){
+  gsap.to(shape, {
+    borderTopLeftRadius: `${top_left_border.value}px`, 
+    duration: 0.25,
+  });
+})
+
+top_right_border.addEventListener("change",function(){
+  gsap.to(shape, {
+    borderTopRightRadius: `${top_right_border.value}px`, 
+    duration: 0.25,
+  });
+})
+
+bottom_right_border.addEventListener("change",function(){
+  gsap.to(shape, {
+    borderBottomRightRadius: `${bottom_right_border.value}px`, 
+    duration: 0.25,
+  });
+})
+
+bottom_left_border.addEventListener("change",function(){
+  gsap.to(shape, {
+    borderBottomLeftRadius: `${bottom_left_border.value}px`, 
+    duration: 0.25,
+  });
+})
+
+
+var linked_border = document.querySelector("#linked_border")
+var unlinked_border = document.querySelector("#unlinked_border")
+
+var linking_flag = true;
+
+unlinked_border.addEventListener("click", function(){
+  linking_flag = false;
+  gsap.to(shape, {
+    borderRadius:border_radius_input.value,
+    duration: 0.25,
+  });
+  corners.forEach(function(corner) {
+    corner.disabled = false;
+    corner.value = border_radius_input.value
+    border_radius_input.disabled = true;
+  });
+})
+
+linked_border.addEventListener("click", function(){
+  linking_flag = true;
+  corners.forEach(function(corner) {
+    corner.disabled = true;
+    border_radius_input.disabled = false;
+  });
+
+  let maxVal = Math.max(...corners.map(corner => corner.value)) || border_radius_input.value;
+
+  gsap.to(shape, {
+    borderTopLeftRadius: `${maxVal}px`,
+    borderTopRightRadius: `${maxVal}px`,
+    borderBottomLeftRadius: `${maxVal}px`,
+    borderBottomRightRadius: `${maxVal}px`,
+    duration: 0.25,
+  })
+})
+
+if (linking_flag){
+  corners.forEach(function(corner){
+    corner.disabled = true;
+    border_radius_input.disabled = false;
+  })
+}
