@@ -16,25 +16,21 @@ reload_btn.addEventListener("click", function () {
   gsap.to(height_btn, {
     value: 200,
     duration: 0.25,
-    scrub: 1,
   });
 
   gsap.to(width_btn, {
     value: 200,
     duration: 0.25,
-    scrub: 1,
   });
 
   gsap.to(border_input, {
     value: 0,
     duration: 0.25,
-    scrub: 1,
   });
 
   gsap.to(border_radius_input, {
     value: 200,
     duration: 0.25,
-    scrub: 1,
   });
 
   gsap.to(shape, {
@@ -43,7 +39,6 @@ reload_btn.addEventListener("click", function () {
     borderRadius: "100px",
     border: "0",
     duration: 0.25,
-    scrub: 1,
   });
 });
 
@@ -61,7 +56,7 @@ bgc_btn.addEventListener("click", function () {
     gsap.to(color_input_display, {
       display: "none",
       duration: 0.5,
-      scrub: 3,
+
       opacity: 0,
     });
 
@@ -70,56 +65,56 @@ bgc_btn.addEventListener("click", function () {
     gsap.to("#shape", {
       backgroundColor: color_input.value,
       duration: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to("#bgc_btn", {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(border_input, {
       border: `2px solid ${color_input.value}`,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(border_radius_input, {
       border: `2px solid ${color_input.value}`,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(width_btn, {
       border: `2px solid ${color_input.value}`,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(height_btn, {
       border: `2px solid ${color_input.value}`,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(size_plus_btn, {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
 
     gsap.to(size_minus_btn, {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-      scrub: 1,
+
     });
   });
 });
@@ -138,7 +133,6 @@ border_input.addEventListener("change", function () {
   gsap.to(shape, {
     border: `${border_input.value}px solid black`,
     duration: 0.25,
-    scrub: 1,
   });
 });
 
@@ -146,7 +140,6 @@ border_radius_input.addEventListener("change", function () {
   gsap.to(shape, {
     borderRadius: `${border_radius_input.value}px`,
     duration: 0.25,
-    scrub: 1,
   });
 });
 
@@ -154,7 +147,6 @@ height_btn.addEventListener("change", function () {
   gsap.to(shape, {
     height: `${height_btn.value}px`,
     duration: 0.25,
-    scrub: 1,
   });
 });
 
@@ -162,7 +154,6 @@ width_btn.addEventListener("change", function () {
   gsap.to(shape, {
     width: `${width_btn.value}px`,
     duration: 0.25,
-    scrub: 1,
   });
 });
 
@@ -198,7 +189,6 @@ opacity_btn.addEventListener("click",function(){
   gsap.to(shape, {
     opacity: `${opacity_btn.value/100}`,
     duration: 0.25,
-    scrub: 1,
   });
 })
 
@@ -208,7 +198,6 @@ rise_btn.addEventListener("click", function () {
     y: "50%",
     opacity: 0,
     duration: 0.5,
-    scrub: 1,
     delay: 0.1,
   });
 });
@@ -219,7 +208,6 @@ pan_btn.addEventListener("click", function () {
     x: "-50%",
     opacity: 0,
     duration: 0.5,
-    scrub: 1,
     delay: 0.1,
   });
 });
@@ -229,7 +217,6 @@ fade_btn.addEventListener("click", function () {
   gsap.from(shape, {
     opacity: 0,
     duration: 1,
-    scrub: 5,
     delay: 0.1,
   });
 });
@@ -248,7 +235,6 @@ drift_btn.addEventListener("click", function () {
   gsap.from(shape, {
     x: "-50%",
     duration: 3,
-    scrub: 5,
     delay: 0.1,
   });
 });
@@ -268,7 +254,6 @@ breathe_btn.addEventListener("click", function () {
   gsap.from(shape, {
     scale: 0.25,
     duration: 5,
-    scrub: 5,
     delay: 0.1,
     ease: "",
   });
