@@ -195,3 +195,21 @@ dt div {
   font-size: 12px;
   font-weight: 500;
 }
+
+#canvas_area {
+  border: 1px solid rgba(255, 255, 255, 0.463);
+  background-color: rgb(254, 247, 247);
+  width: 90%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#shape {
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+}
