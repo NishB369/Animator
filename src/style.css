@@ -74,3 +74,124 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: whitesmoke;
 }
+
+#right_side_panel {
+  /* border: 1px solid rgba(254, 244, 244, 0.457); */
+  height: 100%;
+  width: 70%;
+  background-color: #1b1919;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1%;
+}
+
+#deign_layout_bar {
+  width: 100%;
+  height: 10%;
+  border: 1px solid rgba(255, 255, 255, 0.463);
+  border-radius: 50px;
+  background-color: #252627;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow-x: scroll; */
+}
+
+dl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+dt div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deign_layout_bar_btns {
+  height: 30px;
+  width: 30px;
+}
+
+#bgc_btn {
+  border: 1px solid white;
+  border-radius: 50%;
+  background: blue;
+  scale: 0.75;
+  cursor: pointer;
+}
+
+#hex_code {
+  height: 25px;
+  width: 80px;
+  background-color: rgba(255, 255, 255, 0.767);
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 20px;
+  padding: 2px 1px;
+  font-weight: 400;
+  position: absolute;
+  top: 60px;
+  border: 1px solid white;
+  text-align: center;
+  display: none;
+}
+
+#color_input {
+  display: none;
+  margin: 12.5px 50px 12.5px 50px;
+  align-items: center;
+  justify-content: start;
+}
+
+#reload_btn {
+  cursor: pointer;
+}
+
+#border_input {
+  width: 60px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 2px;
+  padding: 0 0 0 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#border_radius_input {
+  width: 60px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 2px;
+  padding: 0 0 0 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#height_input {
+  width: 60px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 2px;
+  padding: 0 0 0 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#width_input {
+  width: 60px;
+  height: 30px;
+  border: 2px solid blue;
+  border-radius: 2px;
+  padding: 0 0 0 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
