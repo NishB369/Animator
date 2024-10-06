@@ -109,12 +109,26 @@
                 <div id="shape"></div>
             </div>
             <div id="animation_playpause_bar">
-                <div>
-                    <img src="/public/media/icons/play-svgrepo-com (1).svg" alt="">
-                </div>
-                <div>
-                    <img src="/public/media/icons/pause-svgrepo-com.svg" alt="">
-                </div>
+                <dl>
+                    <dt style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                        <div class="deign_layout_bar_btns" id="x_pos"><img src="/public/media/icons/axis-x-letter-svgrepo-com.svg" alt=""></div>
+                        <input type="number" name="" id="x_input" value="0">
+                    </dt>
+                    <dt style="display: flex; justify-content: center;">
+                        <div class="deign_layout_bar_btns" id="y_pos"><img src="/public/media/icons/axis-y-letter-svgrepo-com.svg" alt=""></div>
+                        <input type="number" name="" id="y_input" value="0">
+                    </dt>
+                    <dt style="display: flex; justify-content: center;">
+                        <div class="deign_layout_bar_btns" id="deg_btn"><img src="/public/media/icons/loop-circular-svgrepo-com.svg" alt=""></div>
+                        <input type="number" name="" id="deg_input" value="0" min="-360" max="360">
+                    </dt>
+                    <dt>
+                        <div class="deign_layout_bar_btns" id="separate_btn"><img src="/public/media/icons/separate_line.svg" alt=""></div>
+                    </dt>
+                    <dt style="display: flex; justify-content: center;">
+                        <div class="deign_layout_bar_btns" id="play_btn"><img src="/public/media/icons/play-svgrepo-com (1).svg" alt=""></div>
+                    </dt>
+                </dl>
             </div>
         </div>
     </div>

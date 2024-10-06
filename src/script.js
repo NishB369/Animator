@@ -2,7 +2,7 @@ var bgc_btn = document.querySelector("#bgc_btn");
 var shape = document.querySelector("#shape");
 var border_input = document.querySelector("#border_input");
 var border_radius_input = document.querySelector("#border_radius_input");
-var opacity_btn = document.querySelector("#opacity_input")
+var opacity_btn = document.querySelector("#opacity_input");
 
 var size_plus_btn = document.querySelector("#size_plus_btn");
 var size_minus_btn = document.querySelector("#size_minus_btn");
@@ -12,30 +12,18 @@ var width_btn = document.querySelector("#width_input");
 
 var reload_btn = document.querySelector("#reload_btn");
 
+var x_pos = document.querySelector("#x_input");
+var y_pos = document.querySelector("#y_input");
+var deg_btn = document.querySelector("#deg_input");
+
+var input_boxes = document.querySelectorAll('input[type="number"]');
+
 reload_btn.addEventListener("click", function () {
-  gsap.to(opacity_btn, {
-    value: 100,
-    duration: 0.25,
-  });
-
-  gsap.to(height_btn, {
-    value: 200,
-    duration: 0.25,
-  });
-
-  gsap.to(width_btn, {
-    value: 200,
-    duration: 0.25,
-  });
-
-  gsap.to(border_input, {
-    value: 0,
-    duration: 0.25,
-  });
-
-  gsap.to(border_radius_input, {
-    value: 200,
-    duration: 0.25,
+  input_boxes.forEach(function (box) {
+    gsap.to(box, {
+      value: box.defaultValue,
+      duration: 0.25,
+    });
   });
 
   gsap.to(shape, {
@@ -44,7 +32,10 @@ reload_btn.addEventListener("click", function () {
     borderRadius: "100px",
     border: "0",
     duration: 0.25,
-    opacity:1
+    opacity: 1,
+    rotate: 0,
+    x: 0,
+    y: 0,
   });
 });
 
@@ -71,56 +62,32 @@ bgc_btn.addEventListener("click", function () {
     gsap.to("#shape", {
       backgroundColor: color_input.value,
       duration: 0.1,
-
     });
 
     gsap.to("#bgc_btn", {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-
     });
 
-    gsap.to(border_input, {
-      border: `2px solid ${color_input.value}`,
-      duration: 0.1,
-      delay: 0.1,
-
-    });
-
-    gsap.to(border_radius_input, {
-      border: `2px solid ${color_input.value}`,
-      duration: 0.1,
-      delay: 0.1,
-
-    });
-
-    gsap.to(width_btn, {
-      border: `2px solid ${color_input.value}`,
-      duration: 0.1,
-      delay: 0.1,
-
-    });
-
-    gsap.to(height_btn, {
-      border: `2px solid ${color_input.value}`,
-      duration: 0.1,
-      delay: 0.1,
-
+    input_boxes.forEach(function (box) {
+      gsap.to(box, {
+        border: `2px solid ${color_input.value}`,
+        duration: 0.1,
+        delay: 0.1,
+      });
     });
 
     gsap.to(size_plus_btn, {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-
     });
 
     gsap.to(size_minus_btn, {
       backgroundColor: color_input.value,
       duration: 0.1,
       delay: 0.1,
-
     });
   });
 });
@@ -191,12 +158,33 @@ size_minus_btn.addEventListener("click", function () {
   });
 });
 
-opacity_btn.addEventListener("click",function(){
+x_pos.addEventListener("change", function () {
   gsap.to(shape, {
-    opacity: `${opacity_btn.value/100}`,
-    duration: 0.1,
+    x: `${x_pos.value}px`,
+    duration: 0.25,
   });
-})
+});
+
+y_pos.addEventListener("change", function () {
+  gsap.to(shape, {
+    y: `${y_pos.value}px`,
+    duration: 0.25,
+  });
+});
+
+deg_btn.addEventListener("change", function () {
+  gsap.to(shape, {
+    rotate: `${deg_btn.value}deg`,
+    duration: 0.25,
+  });
+});
+
+opacity_btn.addEventListener("change", function () {
+  gsap.to(shape, {
+    opacity: `${opacity_btn.value / 100}`,
+    duration: 0.25,
+  });
+});
 
 var rise_btn = document.querySelector("#rise");
 rise_btn.addEventListener("click", function () {
