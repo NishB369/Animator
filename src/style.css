@@ -45,6 +45,39 @@ body {
   padding: 25px 15px;
 }
 
+
+#shapes_container {
+  width: 90%;
+  height: 70%;
+  /* border: 1px solid red; */
+  overflow-y: scroll;
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 30px;
+  padding: 25px 15px;
+}
+
+.shape_icon_img{
+  height: 50px;
+  width: 50px;
+  /* margin-left: 10px;  */
+}
+
+#hexagon_01 img{
+  height: 55px;
+}
+
+#hexagon_02 img{
+  width: 55px;
+  height: 45px;
+}
+
+#octagon_02 img{
+  margin-left: -0.5px;
+}
+
 .animation_icon {
   width: 30%;
   height: 30%;
@@ -302,6 +335,7 @@ input[type="number"]{
   height: 200px;
   width: 200px;
   /* border-radius: 100px; */
+  clip-path: none;
 }
 
 #animation_playpause_bar {

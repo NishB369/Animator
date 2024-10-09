@@ -18,7 +18,10 @@ var y_pos = document.querySelector("#y_input");
 var deg_btn = document.querySelector("#deg_input");
 
 var input_boxes = document.querySelectorAll('input[type="number"]');
-var border_panel = document.querySelector("#border_panel")
+var border_panel = document.querySelector("#border_panel");
+
+var shapes_panel = document.querySelector("#shapes_container");
+var animations_panel = document.querySelector("#animations_container");
 
 reload_btn.addEventListener("click", function () {
   input_boxes.forEach(function (box) {
@@ -28,16 +31,21 @@ reload_btn.addEventListener("click", function () {
     });
   });
 
+  border_radius_input.disabled = false;
+  border_input.disabled = false;
+  border_clr_btn.style.pointerEvents = "auto";
+
   gsap.to(shape, {
     height: "200px",
     width: "200px",
     borderRadius: "0px",
     border: "0",
-    duration: 0.25,
+    duration: 0.5,
     opacity: 1,
     rotate: 0,
     x: 0,
     y: 0,
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
   });
 });
 
@@ -104,17 +112,17 @@ bgc_btn.addEventListener("mouseleave", function () {
   hex_code.style.display = "none";
 });
 
-border_clr_btn.addEventListener("mouseenter",function(){
-  border_panel.style.display = "flex"
+border_clr_btn.addEventListener("mouseenter", function () {
+  border_panel.style.display = "flex";
   var hex_code = document.querySelector("#hex_code_border");
   hex_code.style.display = "flex";
-})
+});
 
-border_panel.addEventListener("mouseleave",function(){
-  border_panel.style.display = "none"
+border_panel.addEventListener("mouseleave", function () {
+  border_panel.style.display = "none";
   var hex_code = document.querySelector("#hex_code_border");
-  hex_code.style.display = "none"; 
-})
+  hex_code.style.display = "none";
+});
 
 border_clr_btn.addEventListener("click", function () {
   var color_input_border_display = document.querySelector(
@@ -123,8 +131,8 @@ border_clr_btn.addEventListener("click", function () {
   color_input_border_display.style.display = "flex";
   color_input_border_display.style.opacity = 1;
 
-  var color_input_border = document.querySelector("#input_color_border");
-  var color_output_border = document.querySelector("#hex_code_border");
+  // var color_input_border = document.querySelector("#input_color_border");
+  // var color_output_border = document.querySelector("#hex_code_border");
 
   // color_input_border.addEventListener("change", function () {
 
@@ -316,90 +324,92 @@ border_types.forEach(function (border, i) {
         effect = "solid";
         break;
     }
-    
-    if (effect!="none"){
+
+    if (effect != "none") {
       gsap.to(shape, {
-        borderStyle: effect, 
+        borderStyle: effect,
         duration: 0.25,
       });
-    }
-    else{
+    } else {
       gsap.to(shape, {
-        borderStyle: effect, 
+        borderStyle: effect,
         duration: 0.25,
       });
       gsap.to(border_input, {
-        value: 0, 
+        value: 0,
         duration: 0.25,
       });
     }
   });
 });
 
+var top_right_border = document.querySelector("#top_right_corner");
+var top_left_border = document.querySelector("#top_left_corner");
+var bottom_left_border = document.querySelector("#bottom_left_corner");
+var bottom_right_border = document.querySelector("#bottom_right_corner");
+var corners = [
+  top_left_border,
+  top_right_border,
+  bottom_left_border,
+  bottom_right_border,
+];
 
-
-var top_right_border = document.querySelector("#top_right_corner")
-var top_left_border = document.querySelector("#top_left_corner")
-var bottom_left_border = document.querySelector("#bottom_left_corner")
-var bottom_right_border = document.querySelector("#bottom_right_corner")
-var corners = [top_left_border, top_right_border, bottom_left_border, bottom_right_border]
-
-
-top_left_border.addEventListener("change",function(){
+top_left_border.addEventListener("change", function () {
   gsap.to(shape, {
-    borderTopLeftRadius: `${top_left_border.value}px`, 
+    borderTopLeftRadius: `${top_left_border.value}px`,
     duration: 0.25,
   });
-})
+});
 
-top_right_border.addEventListener("change",function(){
+top_right_border.addEventListener("change", function () {
   gsap.to(shape, {
-    borderTopRightRadius: `${top_right_border.value}px`, 
+    borderTopRightRadius: `${top_right_border.value}px`,
     duration: 0.25,
   });
-})
+});
 
-bottom_right_border.addEventListener("change",function(){
+bottom_right_border.addEventListener("change", function () {
   gsap.to(shape, {
-    borderBottomRightRadius: `${bottom_right_border.value}px`, 
+    borderBottomRightRadius: `${bottom_right_border.value}px`,
     duration: 0.25,
   });
-})
+});
 
-bottom_left_border.addEventListener("change",function(){
+bottom_left_border.addEventListener("change", function () {
   gsap.to(shape, {
-    borderBottomLeftRadius: `${bottom_left_border.value}px`, 
+    borderBottomLeftRadius: `${bottom_left_border.value}px`,
     duration: 0.25,
   });
-})
+});
 
-
-var linked_border = document.querySelector("#linked_border")
-var unlinked_border = document.querySelector("#unlinked_border")
+var linked_border = document.querySelector("#linked_border");
+var unlinked_border = document.querySelector("#unlinked_border");
 
 var linking_flag = true;
 
-unlinked_border.addEventListener("click", function(){
+unlinked_border.addEventListener("click", function () {
   linking_flag = false;
   gsap.to(shape, {
-    borderRadius:border_radius_input.value,
+    borderRadius: border_radius_input.value,
     duration: 0.25,
   });
-  corners.forEach(function(corner) {
+  corners.forEach(function (corner) {
     corner.disabled = false;
-    corner.value = border_radius_input.value
+    corner.value = border_radius_input.value;
     border_radius_input.disabled = true;
   });
-})
+});
 
-linked_border.addEventListener("click", function(){
+linked_border.addEventListener("click", function () {
   linking_flag = true;
-  corners.forEach(function(corner) {
+  corners.forEach(function (corner) {
     corner.disabled = true;
     border_radius_input.disabled = false;
   });
 
-  let maxVal = Math.max(...corners.map(corner => corner.value)) || border_radius_input.value;
+  let maxVal =
+    Math.max(...corners.map((corner) => corner.value)) ||
+    border_radius_input.value;
 
   gsap.to(shape, {
     borderTopLeftRadius: `${maxVal}px`,
@@ -407,12 +417,181 @@ linked_border.addEventListener("click", function(){
     borderBottomLeftRadius: `${maxVal}px`,
     borderBottomRightRadius: `${maxVal}px`,
     duration: 0.25,
-  })
-})
+  });
+});
 
-if (linking_flag){
-  corners.forEach(function(corner){
+if (linking_flag) {
+  corners.forEach(function (corner) {
     corner.disabled = true;
     border_radius_input.disabled = false;
-  })
+  });
 }
+
+var left_panel_heading = document.querySelector("#left_panel_heading");
+
+var shape_btn = document.querySelector("#shape_btn");
+shape_btn.addEventListener("click", function () {
+  gsap.to(shapes_panel, {
+    display: "flex",
+    delay: 0.1,
+  });
+
+  gsap.to(animations_panel, {
+    display: "none",
+    duration: 0.1,
+  });
+
+  gsap.to(left_panel_heading, {
+    textContent: "Shapes",
+  });
+});
+
+var animate_btn = document.querySelector("#animate_btn");
+animate_btn.addEventListener("click", function () {
+  gsap.to(shapes_panel, {
+    display: "none",
+    duration: 0.1,
+  });
+
+  gsap.to(animations_panel, {
+    display: "flex",
+    delay: 0.1,
+  });
+
+  gsap.to(left_panel_heading, {
+    textContent: "Animations",
+  });
+});
+
+var up_triangle = document.querySelector("#up_triangle");
+up_triangle.addEventListener("click", function () {
+  gsap.to(shape, {
+    duration: 0.5,
+    clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+    // border:0,
+    // borderRadius:0
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var down_triangle = document.querySelector("#down_triangle");
+down_triangle.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath: "polygon(50% 100%, 0% 0%, 100% 0%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var diamond = document.querySelector("#diamond");
+diamond.addEventListener("click", function () {
+  gsap.to(shape, {
+    border: "0px",
+    borderRadius: "0%",
+    duration: 0.5,
+    clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var pentagon = document.querySelector("#pentagon");
+pentagon.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var hexagon_01 = document.querySelector("#hexagon_01");
+hexagon_01.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var hexagon_02 = document.querySelector("#hexagon_02");
+hexagon_02.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var octagon_01 = document.querySelector("#octagon_01");
+octagon_01.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath:
+      "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var octagon_02 = document.querySelector("#octagon_02");
+octagon_02.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath:
+      "polygon(30% 0%, 70% 0%, 100% 40%, 100% 60%, 70% 100%, 30% 100%, 0% 60%, 0% 40%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var star = document.querySelector("#star");
+star.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath:
+      "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});
+
+var circle = document.querySelector("#circle");
+circle.addEventListener("click", function () {
+  gsap.to(shape, {
+    border:0,
+    borderRadius:0,
+    duration: 0.5,
+    clipPath: "circle(50% at 50% 50%)",
+  }),
+    (border_radius_input.disabled = true);
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+});

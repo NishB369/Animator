@@ -18,7 +18,7 @@
                 <input type="color" name="" value="#000000" style="height: 50px; width:175px;" id="input_color_border">
             </div>
             <div style="display: flex; align-items: center; justify-content: start; width: 90%; margin-bottom: 0px;">
-                <h1 style="color: white; font-family: Arial, Helvetica, sans-serif; text-align: left; font-size: 20px; border-bottom: 1px solid white;padding-bottom: 2px;">Animations</h1>
+                <h1 style="color: white; font-family: Arial, Helvetica, sans-serif; text-align: left; font-size: 20px; border-bottom: 1px solid white;padding-bottom: 2px;" id="left_panel_heading">Animations</h1>
             </div>
             <div id="animations_container">
                 <div class="animation_icon" id="rise">
@@ -60,6 +60,37 @@
                 <div class="animation_icon" id="rise">
                     <img class="animation_icon_img" src="/public/media/animation_icons/rise.png" alt="">
                     <span>Rise</span>
+                </div>
+            </div>
+
+            <div id="shapes_container">
+                <div class="animation_icon" id="up_triangle">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/up_triangle.png" alt="">
+                </div>
+                <div class="animation_icon" id="down_triangle">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/up_triangle.png" alt="" style="rotate: 180deg;">                </div>
+                <div class="animation_icon" id="diamond">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/diamond.png" alt="">
+                </div>
+                <div class="animation_icon" id="pentagon">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/pentagon.png" alt="">                </div>
+                <div class="animation_icon" id="hexagon_01">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/hexagon_01.png" alt="">
+                </div>
+                <div class="animation_icon" id="hexagon_02">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/hexagon_02.png" alt="">
+                </div>
+                <div class="animation_icon" id="octagon_01">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/octagon_01.png" alt="">
+                </div>
+                <div class="animation_icon" id="octagon_02">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/octagon_02.png" alt="">
+                </div>
+                <div class="animation_icon" id="star">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/star.png" alt="">
+                </div>
+                <div class="animation_icon" id="circle">
+                    <img class="shape_icon_img" src="/public/media/shapes_icons/circle.png" alt="">
                 </div>
             </div>
         </div>
@@ -133,6 +164,15 @@
                         <div class="deign_layout_bar_btns" id="separate_btn"><img src="/public/media/icons/separate_line.svg" alt=""></div>
                     </dt>
                     <dt style="display: flex; justify-content: center;">
+                        <div class="select_link_type" style="padding: 5px 10px;" id="shape_btn"><img src="/public/media/icons/shape-polygon-svgrepo-com.svg" alt="">Shapes</div>
+                    </dt>
+                    <dt style="display: flex; justify-content: center;">
+                        <div class="select_link_type" style="padding: 5px 10px;" id="animate_btn"><img src="/public/media/icons/animation-svgrepo-com.svg" alt="">Animate</div>
+                    </dt>
+                    <dt>
+                        <div class="deign_layout_bar_btns" id="separate_btn"><img src="/public/media/icons/separate_line.svg" alt=""></div>
+                    </dt>
+                    <dt style="display: flex; justify-content: center;">
                         <div class="deign_layout_bar_btns" id="play_btn"><img src="/public/media/icons/play-svgrepo-com (1).svg" alt=""></div>
                     </dt>
                 </dl>
@@ -190,7 +230,7 @@
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
+    <!-- <br><br><br><br><br><br><br><br><br><br> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/src/script.js"></script>
