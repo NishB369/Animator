@@ -230,6 +230,23 @@ dt div {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.a_dir{
+  background-color: #252627;
+  border: 1px solid rgba(255, 255, 255, 0.463);
+  border-radius: 5px;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2% 2%;
+}
+
+.a_dir:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .select_link_type{
   border: 1px solid rgba(255, 255, 255, 0.463);
   width: 100%;

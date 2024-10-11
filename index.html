@@ -230,6 +230,63 @@
             </div>
         </div>
     </div>
+
+
+    <div id="rise_panel" style="height: 25%; width: 22.5%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: none; align-items: start; justify-content: space-evenly; flex-direction: column; position: fixed; top: 40%; left: 2.5%; padding: 0 2%; color: white;">
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Speed</div>
+            <input type="range" name="" id="rise_speed" style="width: 90%; height:15%;" min="1" max="2" step=".05">
+        </div>
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Direction</div>
+            <div style="display: flex; align-items: center; justify-content: start; gap: 5%; width: 100%; height: 75%;">
+                <div class="a_dir" id="rise_up"><img src="/public/media/icons/up-circle-svgrepo-com (1).svg" alt=""></div>
+                <div class="a_dir" id="rise_down"><img src="/public/media/icons/up-circle-svgrepo-com (1).svg" alt="" style="rotate: 180deg;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pan_panel" style="height: 25%; width: 22.5%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: none; align-items: start; justify-content: space-evenly; flex-direction: column; position: fixed; top: 40%; left: 2.5%; padding: 0 2%; color: white;">
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Speed</div>
+            <input type="range" name="" id="pan_speed" style="width: 90%; height:15%;" min="1" max="2" step=".05">
+        </div>
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Direction</div>
+            <div style="display: flex; align-items: center; justify-content: start; gap: 5%; width: 100%; height: 75%;">
+                <div class="a_dir" id="pan_up"><img src="/public/media/icons/up-circle-svgrepo-com (1).svg" alt="" style="rotate: 270deg;"></div>
+                <div class="a_dir" id="pan_down"><img src="/public/media/icons/up-circle-svgrepo-com (1).svg" alt="" style="rotate: 90deg;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fade_panel" style="height: 25%; width: 22.5%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: none; align-items: start; justify-content: space-evenly; flex-direction: column; position: fixed; top: 40%; left: 2.5%; padding: 0 2%; color: white;">
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Speed</div>
+            <input type="range" name="" id="fade_speed" style="width: 90%; height:15%;" min="1" max="2" step=".05">
+        </div>
+    </div>
+
+    <div id="pop_panel" style="height: 25%; width: 22.5%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: none; align-items: start; justify-content: space-evenly; flex-direction: column; position: fixed; top: 40%; left: 2.5%; padding: 0 2%; color: white;">
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Speed</div>
+            <input type="range" name="" id="pop_speed" style="width: 90%; height:15%;" min="1" max="2" step=".05">
+        </div>
+    </div>
+
+    <div id="breathe_panel" style="height: 25%; width: 22.5%; background-color: #252627; border: 1px solid white; border-radius: 10px; display: flex; align-items: start; justify-content: space-evenly; flex-direction: column; position: fixed; top: 40%; left: 2.5%; padding: 0 2%; color: white;">
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Speed</div>
+            <input type="range" name="" id="breathe_speed" style="width: 90%; height:15%;" min="1" max="2" step=".05">
+        </div>
+        <div style="width: 100%; display: flex; align-items: start; justify-content: center; flex-direction: column; gap:10%">
+            <div>Direction</div>
+            <div style="display: flex; align-items: center; justify-content: start; gap: 5%; width: 100%; height: 75%;">
+                <div class="a_dir" id="breathe_up" style="width: 42.5%;">In</div>
+                <div class="a_dir" id="breathe_down" style="width: 42.5%;">Out</div>
+            </div>
+        </div>
+    </div>
     <!-- <br><br><br><br><br><br><br><br><br><br> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

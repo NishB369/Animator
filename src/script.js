@@ -227,25 +227,6 @@ opacity_btn.addEventListener("change", function () {
   });
 });
 
-var rise_btn = document.querySelector("#rise");
-rise_btn.addEventListener("click", function () {
-  gsap.from(shape, {
-    y: "50%",
-    opacity: 0,
-    duration: 0.5,
-    delay: 0.1,
-  });
-});
-
-var pan_btn = document.querySelector("#pan");
-pan_btn.addEventListener("click", function () {
-  gsap.from(shape, {
-    x: "-50%",
-    opacity: 0,
-    duration: 0.5,
-    delay: 0.1,
-  });
-});
 
 var fade_btn = document.querySelector("#fade");
 fade_btn.addEventListener("click", function () {
@@ -431,6 +412,10 @@ var left_panel_heading = document.querySelector("#left_panel_heading");
 
 var shape_btn = document.querySelector("#shape_btn");
 shape_btn.addEventListener("click", function () {
+  border_radius_input.disabled = true;
+  border_input.disabled = true;
+  border_clr_btn.style.pointerEvents = "none";
+
   gsap.to(shapes_panel, {
     display: "flex",
     delay: 0.1,
@@ -443,6 +428,11 @@ shape_btn.addEventListener("click", function () {
 
   gsap.to(left_panel_heading, {
     textContent: "Shapes",
+  });
+
+  gsap.to(shape, {
+    border:0,
+    borderRadius: 0,
   });
 });
 
@@ -468,130 +458,223 @@ up_triangle.addEventListener("click", function () {
   gsap.to(shape, {
     duration: 0.5,
     clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
-    // border:0,
-    // borderRadius:0
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var down_triangle = document.querySelector("#down_triangle");
 down_triangle.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
     duration: 0.5,
     clipPath: "polygon(50% 100%, 0% 0%, 100% 0%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var diamond = document.querySelector("#diamond");
 diamond.addEventListener("click", function () {
   gsap.to(shape, {
-    border: "0px",
     borderRadius: "0%",
     duration: 0.5,
     clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var pentagon = document.querySelector("#pentagon");
 pentagon.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var hexagon_01 = document.querySelector("#hexagon_01");
 hexagon_01.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var hexagon_02 = document.querySelector("#hexagon_02");
 hexagon_02.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath: "polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var octagon_01 = document.querySelector("#octagon_01");
 octagon_01.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath:
       "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var octagon_02 = document.querySelector("#octagon_02");
 octagon_02.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath:
       "polygon(30% 0%, 70% 0%, 100% 40%, 100% 60%, 70% 100%, 30% 100%, 0% 60%, 0% 40%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var star = document.querySelector("#star");
 star.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath:
       "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
 
 var circle = document.querySelector("#circle");
 circle.addEventListener("click", function () {
   gsap.to(shape, {
-    border:0,
-    borderRadius:0,
+    borderRadius: 0,
     duration: 0.5,
     clipPath: "circle(50% at 50% 50%)",
-  }),
-    (border_radius_input.disabled = true);
-  border_input.disabled = true;
-  border_clr_btn.style.pointerEvents = "none";
+  })
 });
+
+var rise_btn = document.querySelector("#rise");
+var rise_panel = document.querySelector("#rise_panel");
+var rise_speed = document.querySelector("#rise_speed");
+var speed = 1.5
+
+rise_panel.addEventListener("mouseleave", function () {
+  rise_panel.style.display = "none";
+});
+
+rise_btn.addEventListener("click", function () {
+  rise_panel.style.display = "flex";
+
+  var rise_direction;
+
+  var rise_up_btn = document.querySelector("#rise_up");
+  var rise_down_btn = document.querySelector("#rise_down");
+
+  rise_speed.addEventListener("change", function () {
+    speed = rise_speed.value;
+  });
+
+  rise_up_btn.addEventListener("click", function () {
+    rise_direction = "50%";
+    triggerGSAPAnimation(rise_direction);
+  });
+
+  rise_down_btn.addEventListener("click", function () {
+    rise_direction = "-50%";
+    triggerGSAPAnimation(rise_direction);
+  });
+});
+
+function triggerGSAPAnimation(direction) {
+  gsap.from(shape, {
+    y: direction,
+    opacity: 0,
+    duration: 2.25-speed,
+    delay: 0.1,
+  });
+}
+
+var pan_btn = document.querySelector("#pan");
+var pan_panel = document.querySelector("#pan_panel");
+var pan_speed = document.querySelector("#pan_speed");
+var p_speed = 1.5
+
+pan_panel.addEventListener("mouseleave", function () {
+  pan_panel.style.display = "none";
+});
+
+pan_btn.addEventListener("click", function () {
+  pan_panel.style.display = "flex";
+
+  var pan_direction;
+
+  var pan_up_btn = document.querySelector("#pan_up");
+  var pan_down_btn = document.querySelector("#pan_down");
+
+  pan_speed.addEventListener("change", function () {
+    p_speed = pan_speed.value;
+  });
+
+  pan_up_btn.addEventListener("click", function () {
+    pan_direction = "50%";
+    triggerGSAPAnimationPan(pan_direction);
+  });
+
+  pan_down_btn.addEventListener("click", function () {
+    pan_direction = "-50%";
+    triggerGSAPAnimationPan(pan_direction);
+  });
+});
+
+function triggerGSAPAnimationPan(pan_direction) {
+  gsap.from(shape, {
+    x: pan_direction,
+    opacity: 0,
+    duration: 2.25-p_speed,
+    delay: 0.1,
+  });
+}
+
+var fade_btn = document.querySelector("#fade");
+var fade_panel = document.querySelector("#fade_panel");
+var fade_speed = document.querySelector("#fade_speed");
+var f_speed = 1.5
+
+fade_panel.addEventListener("mouseleave", function () {
+  fade_panel.style.display = "none";
+});
+
+fade_btn.addEventListener("click", function () {
+  fade_panel.style.display = "flex";
+
+  fade_speed.addEventListener("change", function () {
+    f_speed = fade_speed.value;
+    triggerGSAPAnimationFade(f_speed);
+  });
+});
+
+function triggerGSAPAnimationFade(f_speed) {
+  gsap.from(shape, {
+    opacity: 0,
+    duration: 2.25-f_speed,
+    delay: 0.1,
+  });
+}
+
+var pop_btn = document.querySelector("#pop");
+var pop_panel = document.querySelector("#pop_panel");
+var pop_speed = document.querySelector("#pop_speed");
+var po_speed = 1.5
+
+pop_panel.addEventListener("mouseleave", function () {
+  pop_panel.style.display = "none";
+});
+
+pop_btn.addEventListener("click", function () {
+  pop_panel.style.display = "flex";
+
+  pop_speed.addEventListener("change", function () {
+    po_speed = pop_speed.value;
+    triggerGSAPAnimationPop(po_speed);
+  });
+});
+
+function triggerGSAPAnimationPop(po_speed) {
+  gsap.from(shape, {
+    duration: 2.25-po_speed,
+    delay: 0.1,
+    scale: 1.5,
+    ease: "bounce.out",
+  });
+}
